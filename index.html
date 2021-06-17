@@ -1,0 +1,528 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Unknown Stranger</title>
+        <link rel="stylesheet" href="/style/terms.css">
+        <link rel="stylesheet" href="/style/app.less">          
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Indie Flower">
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/2.18.0/core.min.js" integrity="sha512-XpSfIIupzvkhza/hT76X11BXXysUeg/bTeTB/Obn+8U2x3Ul12Kb071BBL3zUV8JL7G7YOooKVhjJeolBcUtOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		
+		<link rel="stylesheet" href="/public/libs/bootstrap-4-1-3/css/bootstrap.min.css">
+		<script src="/public/libs/bootstrap-4-1-3/js/bootstrap.min.js"></script>
+		<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		
+	<!--	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">  -->
+	<!--	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">  -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+		<style>
+	/*		#chatAreaWrap{
+				padding: 14px;
+			}
+			
+			#chatArea{
+				width: 100%;
+				height: inherit;
+			}
+			.emojiNav{
+				padding: 27px;
+			}
+			.attachIcon{	
+				padding: 27px;
+			}
+			.chatWrap{
+				padding: 0px 0px 0px 0px;
+			}  */
+			
+			.chatInputArea{
+				text-align: center;
+				margin-left: 0px;
+				margin-right: 0px;
+				width: 100%;
+			}
+			.chatinput{
+				text-align: center;
+				margin-left: 0px;
+				margin-right: 0px;
+				width: 100%;
+				
+			}
+			.emojiArea{
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+			.attachArea{
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+			.chatArea{
+				width: 100%;
+				resize: none;
+			}
+			.emojiNav{
+				width: 5%;
+			}
+			.attachIcon{
+				width: 5%;
+			}
+			
+			
+			.panelRow {
+				background-color: #444;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				//height: 80px;
+			}
+			.sendButton{
+				border: none;
+				background: none;
+				padding: 0px 0px 0px 0px;
+			}
+			.sendBtnCol{
+				padding: 5px 0px 5px 0px;
+				margin-block-start: auto;
+			}
+			.emoji{
+				display:none;
+			}
+			.attach{
+				display:none;
+			}
+			.show{
+				display:block;
+			}  
+			.txtAutoO{
+				overflow:hidden;
+			}
+			.txtAutoA{
+				overflow:auto;
+			}
+			.emojiNavCol,.attachIconCol{
+				padding: 0px 0px 5px 5px;
+				text-align: left;
+				margin-block-start: auto;
+			}
+			.disconnectButton{
+				border: none;
+				background: none;
+				padding: 0px 0px 0px 0px;
+			}
+			.disBtnCol{
+				padding: 5px 0px 5px 0px;
+				margin-block-start: auto;
+			}
+			.emojiTab{
+				overflow: auto;
+				flex-wrap: nowrap;
+			}
+			.container{
+				background-color: #05141f;
+			}
+
+			body{
+				background-color: #05141f;
+			}
+			
+		</style>
+    </head>
+	
+	<body>
+		<div class="container"> 
+			<section id="chatWindow">
+				<section id="chatMain">
+                    <div id="chatMainDiv"></div>
+                </section>
+                
+                <div id="isTypingDiv" class="consoleChat">Stranger&nbsp;is&nbsp;typing...</div>
+				
+				<section class="panelRow">
+			
+					<div class="row emojiArea" style="position:relative;" >
+						<div class="col-md-12 emoji emgclick" id="emoji">
+							<ul class="nav nav-tabs emojiTab emgclick" id="emojiTab" role="tablist">
+								<li class="nav-item emgclick">
+									<a class="nav-link active emgclick" id="home-tab" data-toggle="tab" href="#smiley" role="tab" aria-controls="home" area-selected="true">😃 </a>
+								</li>
+								<li class="nav-item emgclick">
+									<a class="nav-link emgclick" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" area-selected="false">🐻</a>
+								</li>
+								<li class="nav-item emgclick">
+									<a class="nav-link emgclick" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" area-selected="false">🍔</a>
+								</li>
+								<li class="nav-item emgclick">
+									<a class="nav-link emgclick" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" area-selected="false">🌇</a>
+								</li>
+								<li class="nav-item emgclick">
+									<a class="nav-link emgclick" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" area-selected="false">💡</a>
+								</li>
+								<li class="nav-item emgclick">
+									<a class="nav-link emgclick" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" area-selected="false">⚽</a>
+								</li>
+								<li class="nav-item emgclick">
+									<a class="nav-link emgclick" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" area-selected="false">⚽</a>
+								</li>
+								<li class="nav-item emgclick">
+									<a class="nav-link emgclick" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" area-selected="false">⚽</a>
+								</li>
+							</ul>
+							<div class="tab-content emgclick" id="myTabContent">
+								<div class="tab-pane fade show active emgclick" id="smiley" role="tabpanel" aria-labelledby="home-tab">
+								</div>
+								<div class="tab-pane fade emgclick" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+								<div class="tab-pane fade emgclick" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+							</div>
+						</div>
+					</div>  
+
+					<div class="row attachArea" style="position:relative;" >
+						<div class="col-md-12 attach attclick" id="attach">
+							<ul class="nav nav-tabs attclick" id="myTab" role="tablist">
+								<li class="nav-item attclick">
+									<a class="nav-link active attclick" id="attImg" role="tab" onclick="ChooseImage()" area-selected="true">
+										<i class="material-icons attclick">&#xe3f4;</i>  
+										<input type="file" id="imageFile" accept="image/*" style="display:none;" ></input>
+									</a>
+								</li>
+								<li class="nav-item attclick">
+									<a class="nav-link attclick" id="attCam" role="tab" onclick="ChooseCamera()" area-selected="false">
+										<i class="material-icons attclick">&#xe3b0;</i>
+									</a>
+								</li>
+								<li class="nav-item attclick">
+									<a class="nav-link attclick" id="attDoc" role="tab" onclick="ChooseDoc()" area-selected="false">
+										<i class="material-icons attclick">&#xe2c7;</i>
+									</a>
+								</li>
+								<li class="nav-item attclick">
+									<a class="nav-link attclick" id="attVid" role="tab" onclick="ChooseVideo()" area-selected="false">
+										<i class="material-icons attclick">&#xe02c;</i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>   
+			
+					<div class="row chatInputArea">  
+						<div class="col-1 disBtnCol" style="background-color:white;">
+							<input type="button" class="disconnectButton" value="▶️" id="disconnectButton" disabled>
+						</div>
+						<div class="col-10 " style="background-color:green;padding: 5px 0px 0px 0px;">
+							<div class="row chatinput">
+								<div class="col-1 emojiNavCol">
+									<i class="emojiNav far fa-grin emgclick" id="emojiNav" onclick="showEmojiPanel()" ></i>
+								</div>
+								<div class="col-10" style="width:100%;padding: 0px 0px 0px 0px">
+									<textarea id="chatArea" rows="1" class="chatArea form-rounded"></textarea>
+								</div>
+								<div class="col-1 attachIconCol attclick" onclick="showAttachPanel()">
+									<i class="attachIcon fas fa-paperclip attclick"></i>
+								</div>
+							</div>
+						</div>
+						<div class="col-1 sendBtnCol"style="background-color:red;" >
+							<input type="button" class="sendButton" value="&#10148;" id="sendButton" disabled>  
+						</div>   
+					</div>
+					
+				</section>	
+				<section id="peopleOnlineSection">
+                    <span id="peopleOnlineSpan">0</span>Online
+                </section>
+			</section>		
+			<section id="welcomeScreen">
+				<div class="container fill-height">
+					<div class="row">
+						<div class="col-lg-1" ></div>
+							<div id="chatDesc" class="col-lg-10 card">
+								<div id="description">
+									<a href="http://omegle.com" target="_blank">RandomStranger</a> is a complete ananyms chat, where people get connected to other people, in a one-to-one chat.<br>
+											If everyone is paired up, you must wait until someone finish a conversation. Chats are anonymous,<br>
+											meaning that the strangers you chat with don't know anything about you (unless you describe yourself).
+								</div>
+								<div class="wrapper">
+									Your name for this chat is <br>
+									<input type="text" class="strangerName " autocomplete="off" name="strangerName" id="strangerName" value="" / ">
+	
+								</div></br>
+								<div>
+									<input type="checkbox" id="checkPolicy" name="checkPolicy" required="">I accept the <a id="terms" href="https://www.solodev.com123" value="terms">Terms & Conditions</a> and <a id="terms" href="https://www.solodev.com456" class="cta-open" value="privacy">Privacy Policy</a><br><br> 
+									<input type="button" value="Start Chatting!" onclick="Stranger.startChat();" class="button animate__animated animate__wobble animate__delay-1s" id="startButton" >
+								</div>
+							</div>
+						<div class="col-lg-1"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<audio id="alertSound">
+
+       </audio>
+	</body>
+  <!--T  <body>
+	
+	
+	<div class="container-fluid bg-white chatbox shadow-lg rounded">
+					<div class="row">
+						<div class="col-xs-3" style="background-color:red;">
+							<input  value="test1" >
+						</div>
+						<div class="col-xs-3" style="background-color:blue;">
+							<input  value="test2" >
+						</div>
+						<div class="col-xs-3" style="background-color:green;">
+							<input  value="test3" >
+						</div>
+						<div class="col-xs-3" style="background-color:yellow;">
+							<input  value="test4" >
+						</div>
+					</div>
+					</div>
+	
+	
+        <section id="container">
+            <section id="chatWindow">
+                
+                <section id="chatMain">
+                    <div id="chatMainDiv"></div>
+                </section>
+                
+                <div id="isTypingDiv" class="consoleChat">Stranger&nbsp;is&nbsp;typing...</div>
+				
+				
+
+                <section id="panelRow">
+					<div class="row" style="position:relative;">
+						<div class="col-md-12" id="emoji" style="display:none;">
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="home-tab" data-toggle="tab" href="#smiley" role="tab" aria-controls="home" area-selected="true">Smiley </a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" area-selected="false">Shape</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" area-selected="false">Contact</a>
+								</li>
+							</ul>
+							<div class="tab-content" id="myTabContent">
+								<div class="tab-pane fade show active" id="smiley" role="tabpanel" aria-labelledby="home-tab">
+								</div>
+								<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					<div class="row">  
+						<div class="col-1 col-xs-1" style="background-color:red;width:100%;height:80px;">
+							<input type="button" value="Disconnect" id="disconnectButton" disabled>
+						</div>
+						<div class="col-1 col-xs-1" style="background-color:white;width:100%;height:80px;">
+							<i class="emojiNav far fa-grin fa-2x" onclick="showEmojiPanel()" ></i>
+						</div>
+						<div class="col-9 col-xs-9 chatWrap" style="background-color:green;width:100%;height:80px;">
+							<input id="chatArea" onfocus="hideEmojiPanel()" disabled="disabled"></input>
+						</div>
+						<div class="col-1 col-xs-1" style="background-color:blue;">
+							<span class="dropdown-toggle"  data-toggle="dropdown">
+								<i class="attachIcon fas fa-paperclip fa-2x"></i>
+							</span>
+							<div class="dropdown-menu">
+                                <a href="#" class="dropdown-item" onclick="ChooseImage()">
+                                    Image
+										<input type="file" id="imageFile" accept="image/*" style="display:none;" />
+                                </a>
+                                <a href="#" class="dropdown-item">Document</a>
+                                <a href="#" class="dropdown-item">Camera</a>
+                                <a href="#" class="dropdown-item">Video</a>
+                            </div>
+							
+						</div>     
+					</div>   
+                </section>
+
+                <section id="peopleOnlineSection">
+                    <span id="peopleOnlineSpan">0</span>Online
+                </section>
+
+            </section>
+            <section id="welcomeScreen">
+                <section id="startButtonDiv">   T-->
+                <!--    <div>
+                        <div id="description">
+                            <a href="http://omegle.com" target="_blank">RandomStranger</a> is a complete ananyms chat, where people get connected to other people, in a one-to-one chat.<br>
+				            If everyone is paired up, you must wait until someone finish a conversation. Chats are anonymous,<br>
+				            meaning that the strangers you chat with don't know anything about you (unless you describe yourself).
+                        </div>
+                        <div>
+                            Your name for this chat is <br>
+                            <input type="text" name="strangerName" id="strangerName" value="Stranger" />
+                        </div>
+                        <div>
+                            <input type="checkbox" id="checkPolicy" name="checkPolicy" required="">I accept the <a href="https://www.solodev.com123" value="terms">Terms & Conditions</a> and <a href="https://www.solodev.com456" class="cta-open" value="privacy">Privacy Policy</a><br><br> 
+                            <input type="button" value="Start Chatting!" onclick="Stranger.startChat();" class="button" id="startButton" >
+                        </div>
+                    </div>  -->
+					
+<!--T					<div class="container fill-height">
+						<div class="row">
+							<div class="col-lg-1"></div>
+								<div id="chatDesc" class="col-lg-10">
+									<div id="description">
+										<a href="http://omegle.com" target="_blank">RandomStranger</a> is a complete ananyms chat, where people get connected to other people, in a one-to-one chat.<br>
+											If everyone is paired up, you must wait until someone finish a conversation. Chats are anonymous,<br>
+											meaning that the strangers you chat with don't know anything about you (unless you describe yourself).
+									</div>
+									<div>
+                            Your name for this chat is <br>
+                            <input type="text" class="strangerName" name="strangerName" id="strangerName" value="Stranger" />
+                        </div>
+                        <div>
+                            <input type="checkbox" id="checkPolicy" name="checkPolicy" required="">I accept the <a href="https://www.solodev.com123" value="terms">Terms & Conditions</a> and <a href="https://www.solodev.com456" class="cta-open" value="privacy">Privacy Policy</a><br><br> 
+                            <input type="button" value="Start Chatting!" onclick="Stranger.startChat();" class="button" id="startButton" >
+                        </div>
+								</div>
+							<div class="col-lg-1"></div>
+						</div>
+					</div>
+					
+					
+                </section>
+                <footer>
+                    RandomStranger - &copy; 2020
+                </footer>  
+            </section>
+        </section>
+       <audio id="alertSound">
+
+       </audio> 
+    </body>  T-->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/utils/terms.js"></script>
+    <script src="/public/js/main.js"></script>      
+    <script>
+       /* var socket = io();*/
+    </script>
+	
+	<script>
+	
+	let i = 0;
+	let placeholder = "";
+	const txt = "Type Your Name...";
+	const speed = 120;
+	
+	function type(){
+	placeholder += txt.charAt(i);
+	document.getElementById("strangerName").setAttribute
+	("placeholder",placeholder);
+	i++;
+	setTimeout(type,speed);
+	}
+	
+	type();
+	
+      $(function() {
+     
+	   
+      });
+	  
+	  $('#chatArea').on('input', function () {
+			console.log("Ipog chatarea clicked");
+			if ($(this).height() >= 120) {
+            
+			}else{
+			this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+			}		
+        }); 
+	  
+	  /*Emoji code Start*/ 
+	  function showEmojiPanel() {
+		var popup = document.getElementById("emoji");
+		popup.classList.toggle("show");
+	  }
+	  
+	  $(document).bind("click", function() {
+		//console.log("form click :"+window.event.toElement.className);
+		
+		if(!window.event.toElement.classList.contains("emgclick")){
+			var element = document.querySelector(".emoji");
+			if (element.classList.contains("show")) {
+				var popup = document.getElementById("emoji");
+				popup.classList.toggle("show");
+			}
+		}
+		
+		if(!window.event.toElement.classList.contains("attclick")){
+			var element = document.querySelector(".attach");
+			if (element.classList.contains("show")) {
+				var popup = document.getElementById("attach");
+				popup.classList.toggle("show");
+			}
+		}
+	  });
+	  
+	  function showAttachPanel(){
+		console.log("Ipog attach click");
+		var popup = document.getElementById("attach");
+		popup.classList.toggle("show");
+	  }
+	  
+	  function hideEmojiPanel() {
+		document.getElementById('emoji').setAttribute('style', 'display:none;');
+	  }
+	  
+	  function getEmoji(control) {
+		document.getElementById('chatArea').value += control.innerHTML;
+	  }
+	  
+	  loadAllEmoji();
+	  
+	  function loadAllEmoji() {
+		var emoji = '';
+		
+		for (var i = 128512; i <= 128566; i++) {
+			emoji += `<a href="#" class="emgclick" style="font-size: 22px;" onclick="getEmoji(this)">&#${i};</a>`;
+		}
+
+		document.getElementById('smiley').innerHTML = emoji;
+	  }     
+ 
+	/*Emoji code End*/  
+	
+	function ChooseImage() {
+		console.log("Ipog image working");
+		document.getElementById('imageFile').click();
+	}
+	
+	function ChooseCamera() {
+		//document.getElementById('imageFile').click();
+		console.log("camera");
+	}
+	function ChooseDoc() {
+		//document.getElementById('imageFile').click();
+		console.log("Doc");
+	}
+	function ChooseVideo() {
+		//document.getElementById('imageFile').click();
+		console.log("Video");
+	}
+	
+	
+	
+    </script>
+</html>
